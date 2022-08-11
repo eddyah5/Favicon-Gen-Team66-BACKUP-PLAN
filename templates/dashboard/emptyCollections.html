@@ -1,0 +1,38 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+<!-- contact html here -->
+
+    {% block style %}
+        <link rel="stylesheet" href="{% static 'dashboard/emptyCollections.css' %}" />
+    {% endblock %}
+
+    {% block title %}Dashboard{% endblock %}
+
+    {% block main %}
+        <!-- main block -->
+        <div class="main">
+            
+            <div class="image">
+                <img
+                    src="{% static 'assets/dashboard/save.svg' %}"
+                    id="w-logo"
+                    alt="emptyCollections Logo"
+            />
+            </div>
+    
+            <div class="content">
+                <h1>Your collection is empty</h1>
+                <br />
+                <p>
+                This is where your Favicons are listed, if nothing is here<br />
+                Start with the button below
+                </p>
+    
+                <br />
+            <a href="{% url 'dashboard:index' %}"
+                ><button class="noCollections">Generate Favicon</button></a>
+                <br />
+            </div>
+        </div>
+    {% endblock %}
+        <!-- endblock -->

@@ -1,0 +1,32 @@
+<!-- contact html here -->
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'dashboard/output.css' %}">
+{% endblock %}
+
+      {% block title %}Output{% endblock %}
+      {% block main %}
+        <!-- main block -->
+        <div class="main2">
+            <div class="congrats">
+                {% if zip %}
+                
+                <h1>Your favicon is successfully brewed</h1>
+                <div class="save_download">
+                    <form action="{% url 'dashboard:save' zip.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="save">Save</button>
+                    </form>
+                    <form action="{% url 'dashboard:download' zip.pk %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="download">Download</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endblock %}
+        <!-- endblock -->
+    

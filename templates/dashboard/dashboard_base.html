@@ -1,0 +1,81 @@
+<!-- contact html here -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="../static/assets/index/favicon-32x32.png" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'dashboard/dashboard_base.css' %}" />
+    {% block style %}
+    {% endblock %}
+    <title>
+      {% block title %}Dashboard{% endblock %}
+    </title>
+    
+</head>
+
+<body>
+    <header class="">
+        <div class="logo">
+            <a href="{% url 'dashboard:index' %}">
+                {% comment %} <img src="{% static 'assets/index/logo_hd.png' %}"> {% endcomment %}
+            </a>
+        </div>
+        <i class="fa-solid fa-bars mobile fa-2x icon" onclick="show()"></i>
+        <div class="desktop desktop-link-div">
+            <div class="desktop-links">
+                <div>
+                    <a href="{% url 'dashboard:index' %}">Favicon-Generator</a>
+                </div>
+                <div>
+                    <a href="{% url 'dashboard:saved_favicons' %}">Saved Favicons</a>
+                </div>
+                <div>
+                    <a href="{% url 'dashboard:text_to_favicon' %}">Text-to-Favicon</a>
+                </div>
+            </div>
+            <div class="desktop-btns">
+              <div class="initials"><h3>{{ initials }}</h3></div>
+                <a href="{% url 'accounts:logout' %}"><button class="desktop-reg bdr">Logout</button></a>
+            </div>
+        </div>
+    </header>
+    <main class="">
+                </a>
+                <a href="{% url 'dashboard:index' %}">
+                    {% comment %} <h5>Generator</h5> {% endcomment %}
+                </a>
+                <a href="{% url 'dashboard:saved_favicons' %}">
+                    {% comment %} <h5>Saved Favicons</h5> {% endcomment %}
+                </a>
+                <a href="{% url 'dashboard:text_to_favicon' %}">
+                    {% comment %} <h5>Text-to-Favicon</h5> {% endcomment %}
+                </a>
+                <div class="mobile-btn">
+                    <div class="">
+                      <a href="" class="initials">{{ initials }}</a>
+                    </div>
+                    <a href="{% url 'accounts:logout' %}"><button class="mobile-reg">Logout</button></a>
+                </div>
+            </div>
+            <div class="outside-click" onclick="noShow()"></div>
+        </div>
+        <!-- main block -->
+        {% block main %}
+        {% endblock %}
+        <!-- endblock -->
+    </main>
+    
+  <!-- base dashboard script -->
+    <script src="{% static 'base_script.js' %}"></script>
+    {% block script %}
+    {% endblock %}
+</body>
+
+</html>
